@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd">
+<suite name="FinalProjectSuite">
+    <test name="FinalProjectTests">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.AddUserTest"/>
+            <class name="tests.AddUserFormCheckingTest"/>
+            <class name="tests.AddAndDeleteJobsTest"/>
+            <class name="tests.AddCandidateTest"/>
+            <class name="tests.AddCandidateFormCheckingTest"/>
+            <class name="tests.AssignLeaveTest"/>
+            <class name="tests.AssignLeaveFormCheckingTest"/>
+            <class name="tests.DashboardTest"/>
+            <class name="tests.PiMFormTest"/>
+            <class name="tests.LogOutTest"/>
+        </classes>
+    </test>
+</suite>
