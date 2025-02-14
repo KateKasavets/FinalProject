@@ -2,8 +2,8 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObject.AddUserPage;
-import valueObjects.AddUserVO;
+import page.AddUserPage;
+import entities.AddUserVO;
 
 import java.io.File;
 

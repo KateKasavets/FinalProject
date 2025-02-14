@@ -4,7 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import pageObject.LoginPage;
+import org.testng.asserts.SoftAssert;
+import page.LoginPage;
 import utils.ConfProperties;
 import utils.WebDriverSingleton;
 
@@ -25,14 +26,17 @@ public class LoginTest {
 
     @Test
     public void loginTest() {
+        SoftAssert softAssert = new SoftAssert();
 
         loginPage.login(ConfProperties.getLogin(), ConfProperties.getPassword());
 
-        assertTrue(loginPage.isPageTitleDisplayed(), "Название страницы не отображается");
+        softAssert.assertTrue(loginPage.isPageTitleDisplayed(), "Название страницы не отображается");
 
-        assertEquals(loginPage.getPageTitleText(), "Dashboard", "Текст заголовка не соответствует ожидаемому");
+        softAssert.assertEquals(loginPage.getPageTitleText(), "Dashboard", "Текст заголовка не соответствует ожидаемому");
 
-        assertTrue(loginPage.isProfileButtonDisplayed(), "Кнопка профиля не отображается");
+        softAssert.assertTrue(loginPage.isProfileButtonDisplayed(), "Кнопка профиля не отображается");
+
+        softAssert.assertAll();
     }
 
     @AfterClass

@@ -3,8 +3,8 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObject.AddUserPage;
-import valueObjects.AddUserVO;
+import page.AddUserPage;
+import entities.AddUserVO;
 
 public class AddUserTest extends BaseTest {
     private AddUserPage addUserPage;

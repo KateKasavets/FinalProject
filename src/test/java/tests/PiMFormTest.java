@@ -3,9 +3,10 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObject.AddUserPage;
-import pageObject.PiMFormPage;
-import valueObjects.AddUserVO;
+import org.testng.asserts.SoftAssert;
+import page.AddUserPage;
+import page.PiMFormPage;
+import entities.AddUserVO;
 
 public class PiMFormTest extends BaseTest {
 
@@ -42,16 +43,20 @@ public class PiMFormTest extends BaseTest {
 
     @Test
     public void verifyJobDetailsOfSalesEmployee() {
+        SoftAssert softAssert = new SoftAssert();
+
         addUserPage.clickPimMenu();
         pimFormPage.searchForSalesSubUnit();
         pimFormPage.clickPencilIcon();
         pimFormPage.clickJobTab();
 
-        Assert.assertTrue(pimFormPage.isSalesUnitDisplayed(), "Sales unit is not displayed");
+        softAssert.assertTrue(pimFormPage.isSalesUnitDisplayed(), "Sales unit is not displayed");
 
-        Assert.assertTrue(pimFormPage.isJobTitleDisplayed(), "Job title 'VP - Sales & Marketing' is not displayed!");
+        softAssert.assertTrue(pimFormPage.isJobTitleDisplayed(), "Job title 'VP - Sales & Marketing' is not displayed!");
 
-        Assert.assertTrue(pimFormPage.isFoundRecorder(), "Attachment is not displayed");
+        softAssert.assertTrue(pimFormPage.isFoundRecorder(), "Attachment is not displayed");
+
+        softAssert.assertAll();
     }
 }
 

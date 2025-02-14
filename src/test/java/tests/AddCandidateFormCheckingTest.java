@@ -2,8 +2,8 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObject.AddCandidatePage;
-import valueObjects.AddCandidateVO;
+import page.AddCandidatePage;
+import entities.AddCandidateVO;
 
 import java.io.File;
 
@@ -96,7 +96,7 @@ public class AddCandidateFormCheckingTest extends BaseTest {
     public void testWithInvalidContactNumberField() {
         AddCandidateVO candidate = new AddCandidateVO();
 
-        String invalidContactNumber = "invalidоо"; // Невалидное значение, содержащее буквы
+        String invalidContactNumber = "invalidоо";
         candidate.setContactNumber(invalidContactNumber);
 
         addCandidatePage.contactNumberFieldCheck(candidate);
@@ -126,7 +126,7 @@ public class AddCandidateFormCheckingTest extends BaseTest {
 
         String errorAttachFormatMessage = addCandidatePage.getErrAttachFormat();
         assertTrue(errorAttachFormatMessage.contains("File type not allowed"),
-                "Сообщение об ошибке для резюме с невадидным форматом файла не соответствует ожиданиям : " + errorAttachFormatMessage);
+                "Сообщение об ошибке для резюме с невадидным форматом файла не соответствует ожиданиям: " + errorAttachFormatMessage);
     }
 
     @Test
@@ -139,7 +139,6 @@ public class AddCandidateFormCheckingTest extends BaseTest {
         assertTrue(currentTabTitle.contains("Candidate"),
                 "Название текущей вкладки не соответствует ожиданиям: " + currentTabTitle);
     }
-
 }
 
 

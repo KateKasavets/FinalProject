@@ -1,27 +1,26 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import page.BasePage;
 import utils.CookieAuth;
 import utils.WebDriverSingleton;
 
-import java.time.Duration;
 
 public class BaseTest {
     protected WebDriver driver;
+    private BasePage basePage;
 
     @BeforeClass
     public void setup() {
         driver = WebDriverSingleton.getDriver();
+        basePage = new BasePage(driver);
 
         CookieAuth.setCookies(driver);
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.urlContains("/dashboard/index"));
+        basePage.waitForUrlToContain("/dashboard/index");
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/dashboard/index"),
                 "Не удалось попасть на страницу /dashboard/index после авторизации!");
@@ -29,6 +28,6 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-      WebDriverSingleton.quitDriver();
+        WebDriverSingleton.quitDriver();
     }
 }

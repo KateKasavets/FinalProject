@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObject.DashboardPage;
+import page.DashboardPage;
 
 import static org.testng.AssertJUnit.assertTrue;
 

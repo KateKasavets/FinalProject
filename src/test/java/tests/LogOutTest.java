@@ -1,7 +1,7 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pageObject.DashboardPage;
+import page.DashboardPage;
 
 import static org.testng.Assert.assertTrue;
 

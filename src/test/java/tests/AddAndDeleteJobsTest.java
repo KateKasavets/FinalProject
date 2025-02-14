@@ -3,8 +3,7 @@ package tests;
 import com.github.javafaker.Faker;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import pageObject.AddJobTitlePage;
-
+import page.AddJobTitlePage;
 import java.util.ArrayList;
 import java.util.List;
 

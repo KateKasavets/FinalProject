@@ -2,8 +2,8 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObject.AssignLeavePage;
-import valueObjects.AddUserVO;
+import page.AssignLeavePage;
+import entities.AddUserVO;
 
 import static org.testng.Assert.assertTrue;
 

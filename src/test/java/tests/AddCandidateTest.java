@@ -2,8 +2,8 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObject.AddCandidatePage;
-import valueObjects.AddCandidateVO;
+import page.AddCandidatePage;
+import entities.AddCandidateVO;
 
 import static org.testng.Assert.assertTrue;
 
@@ -11,7 +11,8 @@ public class AddCandidateTest extends BaseTest {
     private AddCandidatePage addCandidatePage;
 
     @BeforeMethod
-    public void navigateToCandidatePage() {
+    public void setup() {
+        super.setup();
         addCandidatePage = new AddCandidatePage(driver);
         addCandidatePage.clickRecruitmentMenu();
     }
