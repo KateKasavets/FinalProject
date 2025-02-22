@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    seleniumVersion = '4.28.1'
+    javaFakerVersion = '1.0.2'
+    testNgVersion = '7.10.2'
+    restAssuredVersion = '5.5.0'
+    lombokVersion = '1.18.36'
+    webDriverManagerVersion = '5.9.2'
+}
+
+dependencies {
+    implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    implementation "com.github.javafaker:javafaker:${javaFakerVersion}"
+    testImplementation "org.testng:testng:${testNgVersion}"
+    implementation "io.rest-assured:rest-assured:${restAssuredVersion}"
+    implementation "io.rest-assured:json-path:${restAssuredVersion}"
+    implementation "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation "io.github.bonigarcia:webdrivermanager:${webDriverManagerVersion}"
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+
+    }
+}
